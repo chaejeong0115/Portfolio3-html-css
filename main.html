@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div id="wrap">
+        <nav id="nav">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-house"></i>
+                    <p>Home</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-headphones-simple"></i>
+                    <p>Services</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-flag"></i>
+                    <p>Alerts</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <p>Stats</p>
+                </li>
+            </ul>
+        </nav>
+        <main id="main">
+            <header id="header" class="shadow">
+                <div class="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-ani" placeholder="Search"
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button style="background-color: #444; color: #fff;" class="btn btn-outline-secondary"
+                            type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </div>
+                <div class="profile">
+                    <i class="fa-solid fa-bell position-relative">
+                        <span style="font-size: 10px;"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            5
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </i>
+                    <i class="fa-solid fa-envelope position-relative">
+                        <span style="font-size: 10px;"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            7
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </i>
+                    <p>Chaejung Lee</p>
+                </div>
+            </header>
+
+            <article id="content">
+                <section class="card_container">
+                    <h3 class="mb-4">Dashboard</h3>
+                    <div class="row">
+                        <div class="col-lg-3 mb-3">
+                            <div class="card lightblue shadow">
+                                <span>Earnings (Monthly)</span>
+                                <h5>$400,000</h5>
+                                <i class="fa-solid fa-calendar"></i>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <div class="card green shadow">
+                                <span>Earnings (Annual)</span>
+                                <h5>$800,000</h5>
+                                <i class="fa-solid fa-dollar-sign"></i>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <div class="card blue shadow">
+                                <span>Tasks</span>
+                                <h5>13</h5>
+                                <i class="fa-solid fa-list-check"></i>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <div class="card yellow shadow">
+                                <span>Requests</span>
+                                <h5>26</h5>
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- card -->
+
+                <section class="chart_container">
+                    <div class="row">
+                        <div class="col-lg-8 mb-3">
+                            <div class="chart shadow">
+                                <div class="chart_title">
+                                    <h5 class="mb-4">Earnings Overviow</h4>
+                                </div>
+                                <div class="chart_body">
+                                    <canvas id="myChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-3">
+                            <div class="tasks shadow">
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center bg-light">
+                                      Tasks
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                      Borrowed Items
+                                      <span class="badge bg-primary rounded-pill">14</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                      Trello requests
+                                      <span class="badge bg-primary rounded-pill">2</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                      Marked Comments
+                                      <span class="badge bg-primary rounded-pill">1</span>
+                                    </li>
+                                  </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <footer id="footer">
+                    <p>@CopyRight</p>
+                </footer>
+            </article>
+        </main>
+    </div>
+
+    <!-- chart 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- chart js -->
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    type: 'bar',
+                    label: 'Bar Dataset',
+                    data: [30, 60, 25, 10, 25, 50, 30],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgb(75, 192, 192)',
+                    borderWidth: 1
+                }, {
+                    type: 'line',
+                    label: 'Line Dataset',
+                    data: [30, 55, 15, 40, 35, 65, 10],
+                    fill: false,
+                    borderColor: 'rgb(255, 99, 132)'
+                }]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Stacked Bar and Line Chart'
+                    }
+                },
+                responsive: true,
+                scales: {
+                    y: {
+                        stacked: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
