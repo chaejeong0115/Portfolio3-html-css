@@ -130,43 +130,53 @@ a {
     height: auto;
     background-color: #eee;
 }
+
 .card_container {
     width: 100%;
     padding: 20px;
     /* background-color: #999; */
 }
+
 .card_container h3 {
     font-weight: bolder;
 }
-.row {
-    text-align: center;
-}
+
 .card {
     padding: 30px;
     border-radius: 10px;
     text-align-last: left;
     position: relative;
-
+    transition: all 1s;
 }
+.card:hover {
+    background-color: #444;
+    color: #fff;
+}
+
 .card h5 {
     margin-top: 10px;
     font-weight: bold;
 }
+
 .card i {
     position: absolute;
     top: 50px;
     right: 20px;
     font-size: 30px;
 }
+
 .card.lightblue {
     border-left: 5px solid rgb(146, 195, 250);
 }
+
 .card.green {
     border-left: 5px solid green;
 }
+
 .card.blue {
     border-left: 5px solid rgb(0, 0, 185);
 }
+
 .card.yellow {
     border-left: 5px solid rgb(255, 200, 0);
 }
@@ -175,12 +185,14 @@ a {
     width: 100%;
     padding: 20px;
 }
+
 .chart {
     border-radius: 5px;
     padding: 20px;
     text-align: left;
     background-color: #eee;
 }
+
 .chart_body {
     border-radius: 5px;
     display: flex;
@@ -195,7 +207,7 @@ a {
 .tasks {
     border-radius: 5px;
     padding: 20px;
-    
+
 }
 
 #footer {
@@ -212,6 +224,7 @@ a {
         margin-right: 20px;
         font-size: 16px;
     }
+
     .profile p {
         font-size: 14px;
     }
